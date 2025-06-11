@@ -1,5 +1,9 @@
-<div class="grid grid-cols-3 ">
-  <app-product imgUrl="https://picsum.photos/200/300" [price]="2000" title="producto1"/>
+<div class="container mx-auto">
+  <div class="grid grid-cols-4 gap-8">
+    @for (product of products(); track product.id;let i = $index) {
+      <app-product [product]="product" (addToCard)="addProductFromChild($event)"/>
+    }
 
+  </div>
 
 </div>

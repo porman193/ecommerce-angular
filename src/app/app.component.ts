@@ -1,11 +1,18 @@
-import { Component } from '@angular/core';
+
+import { Component, signal, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { HeaderComponent } from "./domains/shared/components/header/header.component";
+
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  template: '<router-outlet/>',
+  imports: [RouterOutlet, HeaderComponent],
+  templateUrl: 'app.component.html',
 })
+
 export class AppComponent {
   title = 'ecommerce';
+
+
 }

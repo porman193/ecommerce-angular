@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Product } from './../../../shared/models/product/product.model';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-product',
@@ -8,9 +9,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductComponent {
 
-  @Input({required:true}) imgUrl :string ='';
-  @Input({required:true}) price :number =0;
-  @Input({required:true}) title :string ='';
+  @Input({required:true}) product! :Product;
+
+
+  @Output() addToCard = new EventEmitter();
+
+  addToCardHandler(){
+    this.addToCard.emit(this.product)
+  }
 
 
 }
