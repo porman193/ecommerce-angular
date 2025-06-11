@@ -1,10 +1,10 @@
-import { Component, computed, inject, Injectable, Input, Signal, signal } from '@angular/core';
-import { Product } from '../../models/product/product.model';
-import { CartService } from '../../service/cart.service';
+import { Component,inject,signal } from '@angular/core';
+import { CartService } from '@services/cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
