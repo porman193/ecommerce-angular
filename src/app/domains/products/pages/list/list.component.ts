@@ -12,7 +12,7 @@ import { Product } from '@models/product/product.model';
 })
 
 
-export class ListComponent {
+export default class ListComponent {
 
   products= signal<Product[]>([])
   private cartService= inject(CartService)

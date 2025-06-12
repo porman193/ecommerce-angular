@@ -3,7 +3,6 @@
     @for (product of products(); track product.id;let i = $index) {
       <app-product [product]="product" (addToCard)="addProductFromChild($event)"/>
     }
-
   </div>
 
 </div>
