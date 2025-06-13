@@ -15,6 +15,8 @@ export default class ProductDetailComponent {
   private productService = inject(ProductService)
   private cartService = inject(CartService)
   product = signal<Product|null>(null)
+  cover = signal<string>('')
+
   @Input() id?:string;
 
   ngOnInit(){
@@ -22,6 +24,10 @@ export default class ProductDetailComponent {
       this.productService.getOne(this.id).subscribe({
         next:(product) => {
           this.product.set(product);
+          if (product.images.length > 0) {
+            this.cover.set(product.images[0])
+            console.log(product.images)
+          }
         }
       });
     }

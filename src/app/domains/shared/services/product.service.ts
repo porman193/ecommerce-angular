@@ -9,11 +9,17 @@ export class ProductService {
 
     http = inject(HttpClient);
 
-    getProducts(){
-      return this.http.get<Product[]>('https://fakestoreapi.com/products');
+    getProducts(categoryId?:string){
+      let url = new URL('https://api.escuelajs.co/api/v1/products');
+      if(categoryId){
+        url.searchParams.set('categoryId',categoryId)
+      }
+      return this.http.get<Product[]>(url.toString())
     }
 
+
+
     getOne(id:string){
-      return this.http.get<Product>(`https://fakestoreapi.com/products/${id}`);
+      return this.http.get<Product>(`https://api.escuelajs.co/api/v1/products/${id}`);
     }
 }
