@@ -1,8 +1,18 @@
 <div class="flex gap-4">
-  <input type="text" [formControl] = "messageControl"  (change)="changeMessage()" [value]="message()">
-  <input type="number" [formControl] = "durationControl" (change)="changeDuration()" [value]="duration()">
+  <input
+    type="text"
+    [formControl]="messageControl"
+    (change)="changeMessage()"
+    [value]="message()"
+  />
+  <input
+    type="number"
+    [formControl]="durationControl"
+    (change)="changeDuration()"
+    [value]="duration()"
+  />
 </div>
 
-@if(duration()>0){
-  <app-counter  [duration]="duration()" [message]="message()"/>
+@if (duration() > 0) {
+  <app-counter [duration]="duration()" [message]="message()" />
 }
