@@ -6,7 +6,7 @@ import { ProductComponent } from '@products/components/product/product.component
 import { Product } from '@models/product/product.model';
 import { CategoryService } from '@shared/services/category.service';
 import { RouterLinkWithHref } from '@angular/router';
-import { rxResource } from '@angular/core/rxjs-interop';
+
 
 @Component({
   selector: 'app-list',
