@@ -6,7 +6,7 @@ import { ProductComponent } from '@products/components/product/product.component
 import { Product } from '@models/product/product.model';
 import { CategoryService } from '@shared/services/category.service';
 import { RouterLinkWithHref } from '@angular/router';
-
+import { rxResource } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-list',
@@ -21,8 +21,8 @@ export default class ListComponent {
   readonly slug = input<string>();
 
   products = rxResource({
-    request: () => ({ categorySlug: this.slug() }),
-    loader: ({ request }) => this.productService.getProducts(request),
+    params: () => ({ categorySlug: this.slug() }),
+    stream: ({ params }) => this.productService.getProducts(params),
   });
 
   categories = resource({
