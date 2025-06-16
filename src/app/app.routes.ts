@@ -19,6 +19,10 @@ export const routes: Routes = [
         loadComponent: () => import('@info/pages/about/about.component'),
       },
       {
+        path: 'location',
+        loadComponent: () => import('@info/pages/location/location.component'),
+      },
+      {
         path: 'product/:slug',
         loadComponent: () =>
           import('@products/pages/product-detail/product-detail.component'),
