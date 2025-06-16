@@ -2,7 +2,7 @@
   <div
     class="w-48 h-max text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
   >
-    @for (category of categories(); track category.id) {
+    @for (category of categories.value(); track category.id) {
       <a
         routerLink="/category/{{ category.slug }}"
         (click)="changeCategorySelect(category.id)"
@@ -21,7 +21,7 @@
   </div>
 
   <div class="grid grid-cols-4 gap-8">
-    @for (product of products(); track product.id; let i = $index) {
+    @for (product of products.value(); track product.id; let i = $index) {
       <app-product
         [product]="product"
         (addToCard)="addProductFromChild($event)"

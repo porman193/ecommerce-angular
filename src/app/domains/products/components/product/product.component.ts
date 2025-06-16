@@ -1,5 +1,5 @@
 import { Product } from '@models/product/product.model';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLinkWithHref } from '@angular/router';
 
@@ -10,11 +10,11 @@ import { RouterLinkWithHref } from '@angular/router';
   styleUrl: './product.component.css',
 })
 export class ProductComponent {
-  @Input({ required: true }) product!: Product;
+  readonly product = input.required<Product>();
 
-  @Output() addToCard = new EventEmitter();
+  readonly addToCard = output<Product>();
 
   addToCardHandler() {
-    this.addToCard.emit(this.product);
+    this.addToCard.emit(this.product());
   }
 }

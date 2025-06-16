@@ -1,12 +1,12 @@
 import {
   Component,
-  Input,
   signal,
   SimpleChanges,
   OnChanges,
   OnInit,
   AfterViewInit,
   OnDestroy,
+  input
 } from '@angular/core';
 
 @Component({
@@ -18,8 +18,8 @@ import {
 export class CounterComponent
   implements OnChanges, OnInit, AfterViewInit, OnDestroy
 {
-  @Input({ required: true }) duration = 0;
-  @Input({ required: true }) message = '';
+  readonly duration = input.required<number>();
+  readonly message = input.required<string>();
   counter = signal(0);
   counterRef: number | undefined;
 
@@ -37,8 +37,8 @@ export class CounterComponent
   ngOnInit() {
     console.log('OnInit');
     console.log('---'.repeat(10));
-    console.log('duration ' + this.duration);
-    console.log('message ' + this.message);
+    console.log('duration ' + this.duration());
+    console.log('message ' + this.message());
     console.log('---'.repeat(10));
 
     this.counterRef = window.setInterval(() => {

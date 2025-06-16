@@ -1,4 +1,4 @@
-import { Component, inject, Input, signal, OnInit } from '@angular/core';
+import { Component, inject, signal, OnInit, input } from '@angular/core';
 import { Product } from '@shared/models/product/product.model';
 import { ProductService } from '@shared/services/product.service';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
@@ -16,11 +16,12 @@ export default class ProductDetailComponent implements OnInit {
   product = signal<Product | null>(null);
   cover = signal<string>('');
 
-  @Input() slug?: string;
+  readonly slug = input<string>();
 
   ngOnInit() {
-    if (this.slug) {
-      this.productService.getOne({ slug: this.slug }).subscribe({
+    const slug = this.slug();
+    if (slug) {
+      this.productService.getOne({ slug: slug }).subscribe({
         next: (product) => {
           this.product.set(product);
           if (product.images.length > 0) {

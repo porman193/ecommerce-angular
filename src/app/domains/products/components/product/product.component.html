@@ -4,12 +4,12 @@
   <div
     class="h-[200px] overflow-hidden rounded-t-lg bg-white flex items-center justify-center"
   >
-    <a [routerLink]="['/product', product.slug]" class="h-50 w-full">
+    <a [routerLink]="['/product', product().slug]" class="h-50 w-full">
       <div class="relative h-full">
         <img
           class="h-full w-full object-cover object-center group-hover:opacity-75"
           [fill]="true"
-          [ngSrc]="product.images[0]"
+          [ngSrc]="product().images[0]"
           loading="lazy"
           priority="false"
           alt="product image"
@@ -24,14 +24,14 @@
         <h5
           class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white line-clamp-2"
         >
-          {{ product.title }}
+          {{ product().title }}
         </h5>
       </a>
     </div>
 
     <div class="flex items-center justify-between mt-4">
       <span class="text-3xl font-bold text-gray-900 dark:text-white">{{
-        product.price | currency: "$"
+        product().price | currency: "$"
       }}</span>
       <a
         href="#"
